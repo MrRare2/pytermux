@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pytermux"
+version = "1.0"
+description = "Interact with Termux:API in Python"
+authors = ["MrRare <mrrare.dev@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[build-system]
+requires = []
+build-backend = "setuptools.build_meta"
+
+[tool.poetry.scripts]
+pytermux = 'pytermux._check:install'
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry.metadata]
+license = "GNU GPLv3"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
