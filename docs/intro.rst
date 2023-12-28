@@ -13,7 +13,24 @@ If not, you can install it `here <https://github.com/termux/termux-app>`__ and T
 Basics
 ------
 
-Some sample usages are taking pictures with your phone camera
+``Battery Status``
+
+To get the battery information, you need to use `pytermux.Battery()`< which is shown as example below
+
+.. code-block:: python
+
+    import pytermux
+    battery = pytermux.Battery()
+    info = battery.battery()
+
+    percentage = info['percentage']
+
+    print(f'Your device battery percentage is: {percentage}")
+In this example, we used `pytermux.Battery()` instance for getting battery information, and used `battery()` to get the info, then we take the `percentage` value from `info` then printed it, this is mostly easy to use, but some outputs may depend on your device
+
+``Camera``
+
+Some sample usage in `pytermux` are taking pictures with your phone camera
 
 .. code-block:: python
 
