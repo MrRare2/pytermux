@@ -60,3 +60,18 @@ Here, it uses the ``Camera()`` instance for camera and `take()` function to actu
 To use this command, you need to grant it the camera permission, i.e. ``android.permssion.CAMERA``
 
 ``Clipboard``
+
+You can also get, and set the data of your clipboard with the ``Clipboard()`` instance
+
+.. code-block:: python
+
+    import pytermux
+    clipboard = pytermux.Clipboard()
+    data = clipboard.get()
+    new_data = "Hello World!"
+    clipboard.set(new_data)
+
+Here, you get the data by using ``get()`` method, and set it with new data with ``set()``
+
+Unfortunately, get() doesn't work when you copy an image, i can't fix this because ``pytermux`` just executes system commands to the system
+
