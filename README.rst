@@ -8,7 +8,7 @@ Installation
 
 To install pytermux, do
 
-.. code-block:: shell
+.. code-block:: bash
 
   pip install git+https://github.com/MrRare2/pytermux.git
 
