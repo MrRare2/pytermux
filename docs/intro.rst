@@ -73,5 +73,5 @@ You can also get, and set the data of your clipboard with the ``Clipboard()`` in
 
 Here, you get the data by using ``get()`` method, and set it with new data with ``set()``
 
-Unfortunately, get() doesn't work when you copy an image, i can't fix this because ``pytermux`` just executes system commands to the system
+Unfortunately, ``get()`` doesn't work when you copy an image, i can't fix this because ``pytermux`` just executes system commands to the system
 
