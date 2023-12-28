@@ -10,7 +10,6 @@ formats:
   - htmlzip
 
 python:
-  version: 3.10
   install:
     - path: .
       extra_requirements:
