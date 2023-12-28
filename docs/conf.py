@@ -2,7 +2,8 @@ project = "pytermux"
 author = "MrRare2"
 version = "1.0"
 full = version
-
+desc = "pytermux - interact with Termux:API in Python"
+html_short_title = desc
 needs_sphinx = "2.0"
 extensions = [
     "sphinx.ext.autodoc",
@@ -10,7 +11,7 @@ extensions = [
     "sphinx.ext.viewcode",
 ]
 
-master_doc = "index.rst"
+master_doc = "index"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 highlight_language = "python3"
