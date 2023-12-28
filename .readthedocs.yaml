@@ -1,0 +1,9 @@
+version = 2
+
+built:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11.6"
+
+sphinx:
+  configuration: docs/conf.py
