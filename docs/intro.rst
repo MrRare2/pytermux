@@ -10,6 +10,10 @@ This module expects you have **Termux** and **Termux:API** (including its apt pa
 
 If not, you can install it `here <https://github.com/termux/termux-app>`__ and Termux:API `here <https://github.com/termux/termux-api>`__.
 
+Another note here that this project is still in development, some examples here are not made yet, marked with ``(not implemented)``
+
+If you want to help into the project, email me at `mrrare.dev@gmail.com <mailto: mrrare.dev@gmail.com>`__.
+
 Basics
 ------
 
@@ -51,7 +55,8 @@ Some sample usage in ``pytermux`` are taking pictures with your phone camera
     cam = pytermux.Camera()
     cam.take('image.jpg', cam_type=0)
 
-Here, it uses the ``Camera()`` instance for camera and `take()` function to actually take images with file ``image.jpg``, here, the `cam_type` argument is used if you want to use your phone's back or front camera, 0 for back, which is default, and 1 for front.
+Here, it uses the ``Camera()`` instance for camera and `take()` function to actually take images with file ``image.jpg``, here, the ``cam_type`` argument is used if you want to use your phone's back or front camera, 0 for back, which is default, and 1 for front.
 
 To use this command, you need to grant it the camera permission, i.e. ``android.permssion.CAMERA``
 
+``Clipboard``
