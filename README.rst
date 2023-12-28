@@ -18,6 +18,8 @@ Usage
 **Usage doc is in development**
 
 All the usage are inside the package.
+Or
+On `ReadTheDocs <https://pytermux.readthedocs.io/en/latest/>`__
 
 Notes
 -----
