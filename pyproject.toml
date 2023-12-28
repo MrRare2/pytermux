@@ -14,9 +14,5 @@ build-backend = "setuptools.build_meta"
 [tool.poetry.scripts]
 pytermux = 'pytermux._check:install'
 
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [tool.poetry.metadata]
 license = "GNU GPLv3"
