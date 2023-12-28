@@ -8,7 +8,6 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
-    "sphinx_autodoc_typehints",
 ]
 
 master_doc = "index.rst"
