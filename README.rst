@@ -8,18 +8,14 @@ Installation
 
 To install pytermux, do
 
-::
+.. code-block:: 
 
   pip install git+https://github.com/MrRare2/pytermux.git
 
 Usage
 -----
 
-**Usage doc is in development**
-
-All the usage are inside the package.
-Or
-On `ReadTheDocs <https://pytermux.readthedocs.io/en/latest/>`__
+The doc is available on `ReadTheDocs <https://pytermux.readthedocs.io/en/latest/>`__
 
 Notes
 -----
@@ -31,6 +27,11 @@ Maintainer
 ----------
 
 `@MrRare2 <https://github.com/MrRare2>`__
+
+⚠️ WARNING ⚠️
+=============
+
+Please do **NOT** use this on any unethical hacking activies. I am not responsible for any damages or cause you make on using this script.
 
 License
 -------
