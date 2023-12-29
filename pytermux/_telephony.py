@@ -25,8 +25,9 @@ class Telephony:
 
         try:
             err_msg = json.loads(process.stdout.strip())
-            return err_msg["error"]
-        except:
             raise _exception.TermuxAPIError(err_msg["error"]) from None
+        except Exception as e:
+            if type(e) == _exception.TermuxAPIError:
+                raise
         return True if success[0] else success
 

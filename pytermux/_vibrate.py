@@ -32,7 +32,7 @@ class Vibrate:
         try:
             err_msg = json.loads(process.stdout.strip())
             raise _exception.TermuxAPIError(err_msg["error"])
-        except:
+        except Exception as e:
             if type(e) == _exception.TermuxAPIError:
                 raise
         return True if success[0] else success
