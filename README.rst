@@ -1,7 +1,7 @@
 ``pytermux``
 ========
 
-.. image:: https://badgen.net/pypi/license/pytermux
+.. image:: https://badgen.net/gnu/license/pytermux
     :target: https://github.com/MrRare2/pytermux/tree/master/LICENSE
     :alt: License: GNU GPL v3.0
 
