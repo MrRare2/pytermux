@@ -37,6 +37,11 @@ Maintainer
 
 `@MrRare2 <https://github.com/MrRare2>`__
 
+Notes
+=====
+
+If you want to add a feature to termux-api (then I will add it here if I can) then go `here <https://github.com/termux/termux-api/issues>`__.
+
 ⚠️ WARNING ⚠️
 =============
 
