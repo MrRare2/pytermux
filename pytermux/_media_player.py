@@ -77,3 +77,7 @@ class MediaPlayer:
                 raise
 
         return True if success[0] else False
+
+    def isPlaying():
+        # TODO: termux-media-player dosent have its built in isPlaying, so yeah, if someone have ways, add it here
+        raise NotImplementedError()
