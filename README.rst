@@ -1,6 +1,15 @@
 ``pytermux``
 ========
 
+.. image:: https://badgen.net/pypi/license/pytermux
+    :target: https://github.com/MrRare2/pytermux/tree/master/LICENSE
+    :alt: License: GNU GPL v3.0
+
+.. image:: https://readthedocs.org/projects/pytermux/badge/?version=latest
+    :target: https://pytermux.readthedocs.io
+    :alt: Documentation
+
+
 Interact with Termux:API in Python
 
 Installation
