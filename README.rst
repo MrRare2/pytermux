@@ -2,7 +2,7 @@
 ========
 
 .. image:: https://badgen.net/github/license/termux/pytermux?color=green
-    :target: https://github.com/MrRare2/pytermux/tree/master/LICENSE
+    :target: https://github.com/MrRare2/pytermux/blob/main/LICENSE
     :alt: License: GNU GPL v3.0
 
 .. image:: https://readthedocs.org/projects/pytermux/badge/?version=latest
