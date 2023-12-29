@@ -21,7 +21,7 @@ from ._telephony import Telephony
 from ._brightness import Brightness
 from ._media_player import MediaPlayer
 from ._mic_record import MicRec
-VERSION = "1.0rel1"
+VERSION = "1.0rel2"
 
 has_termux_api = _check.check_api()
 
