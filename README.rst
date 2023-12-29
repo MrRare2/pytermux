@@ -1,7 +1,7 @@
 ``pytermux``
 ========
 
-.. image:: https://badgen.net/github/license/termux/pytermux?color=green
+.. image:: https://badgen.net/github/license/MrRare2/pytermux?color=green
     :target: https://github.com/MrRare2/pytermux/blob/main/LICENSE
     :alt: License: GNU GPL v3.0
 
