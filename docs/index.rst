@@ -18,6 +18,4 @@ Documentation Overview
     :maxdepth: 2
 
     intro
-    examples
     faq
-    api/index
