@@ -8,7 +8,7 @@ prog = "termux-volume"
 class Volume:
     """Base class for controlling volume (termux-volume)"""
     def __init__(self):
-        self._streams = [entry['stream'] for entry in self.list_streams()]
+        self._streams = self.list_streams()
 
     def _run(self, command):
         """Function to run commands on Termux
@@ -29,14 +29,17 @@ class Volume:
         except Exception as e:
             if type(e) == _exception.TermuxAPIError:
                 raise
-        return json.loads(process.stdout.strip())
+        return [entry['stream'] for entry in json.loads(process.stdout.strip())]
 
     def set(self, stream, volume):
         """Function to set the volume of the audio stream
 
         Args:
             stream - the stream you want to use, to list the available streams for your device, use `Volume.list_streams()` method
-            volume (x>0) = The volume you want to set it"""
+            volume (x<=0) = The volume you want to set it"""
+
+        if stream not in self._streams:
+            raise ValueError('invalid stream')
 
         if volume <= 0: # you cant have negative volume lol ur going to the fifth dimension?
             volume = 0
