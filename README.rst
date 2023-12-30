@@ -35,7 +35,8 @@ If you want to contribute and help to the project, or ask something else email m
 Maintainer
 ----------
 
-`@MrRare2 <https://github.com/MrRare2>`__
+- `@MrRare2 <https://github.com/MrRare2>`__
+- `@MrRareDev <https://github.com/MrRareDev>'__
 
 Notes
 =====

@@ -160,6 +160,8 @@ Yeah, you can also get sensor information, as long your devices supports one
 
 Hard to explain, but here it gets the value of the ``Proximity`` sensor, btw, the values and names of the sensor are different for each devices, that above is an example, to list the sensors available, use the ``list()`` method
 
+Note: may drain your device battery if used for too long (especially to ``all()`` method)
+
 SMS
 ---
 
@@ -177,6 +179,7 @@ You use the ``send()`` method to send the message, along with the number (i.e. r
 Data charges may apply
 
 Permissions:
+
 - ``android.permission.SEND_SMS``
 - ``android.permission.READ_SMS``
 - ``android.permission.READ_CONTACTS``
