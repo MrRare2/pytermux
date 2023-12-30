@@ -42,6 +42,8 @@ Notes
 
 If you want to add a feature to termux-api (then I will add it here if I can) then go `here <https://github.com/termux/termux-api/issues>`__.
 
+The developers, and ``pytermux`` **WILL NEVER** collect any personal info/data you use as arguments in ``pytermux``, you can look the source code yourself `here <https://github.com/MrRare2/pytermux>`__ so you dont have get worried using this.
+
 ⚠️ WARNING ⚠️
 =============
 

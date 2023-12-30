@@ -158,12 +158,28 @@ Yeah, you can also get sensor information, as long your devices supports one
    elif value == 0:
      print('close')
 
-Hard to explain, but here it gets the value of the ``Proximity`` sensor, btw, the values and names of the sensor are different for each devices, that above is an example, so yeah.
+Hard to explain, but here it gets the value of the ``Proximity`` sensor, btw, the values and names of the sensor are different for each devices, that above is an example, to list the sensors available, use the ``list()`` method
 
 SMS
 ---
 
-not implemented yet
+You can text any numbers in ``pytermux`` as well!
+
+.. code-block:: python
+
+   import pytermux
+   sms = pytermux.SMS()
+   number = 123456789
+   sms.send(number, "Hello world!")
+
+You use the ``send()`` method to send the message, along with the number (i.e. recipient) and the message, if your phone is multi-SIM, you can add the ``slot`` keyword argument at the ``send()`` method for it to send either SIM 1 or 2
+
+Data charges may apply
+
+Permissions:
+- ``android.permission.SEND_SMS``
+- ``android.permission.READ_SMS``
+- ``android.permission.READ_CONTACTS``
 
 Telephony
 ---------
@@ -218,7 +234,17 @@ not implemented yet
 Volume
 ------
 
-not implemented yet
+You can set the audio volume using the` `Volume()`` instance
+
+.. code-block:: python
+
+   import pytermux
+   vol = pytermux.Volume()
+   vol.set('media', 5)
+
+Using the ``set()`` method, with the audio stream name (use ``list_streams()`` for list of available streams)
+
+Dont use negative numbers:)
 
 Vibrate
 -------
@@ -247,8 +273,10 @@ not implemented yet
 Notes
 =====
 
-There you have it, if you have more questions you can create an issue on the `repo <https://github.com/MrRare2/pytermux>`__
+There you have it, if you have more questions you can create an issue on the `repo <https://github.com/MrRare2/pytermux/issues>`__
+
+The developers, and ``pytermux`` **WILL NEVER** collect any personal info/data you use as arguments in ``pytermux``, you can look the source code yourself `here <https://github.com/MrRare2/pytermux>`__ so you dont have get worried using this.
 
 Warning!!!
 ----------
-Please do **NOT** use this on any unethical hacking activies. I am not responsible for any damages or cause you make on using this script.
+Please do **NOT** use this on any unethical hacking activies. We are not responsible for any damages or cause you make on using this script.
