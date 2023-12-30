@@ -11,18 +11,19 @@ from ._camera import Camera
 from ._torch import Torch
 from ._fingerprint import Fingerprint
 from ._sensor import Sensor
-# from ._wifi imporr WiFi
+from ._wifi import WiFi
 from ._clipboard import Clipboard
 from ._notif import Notification
 from ._vibrate import Vibrate
-# from ._wallpaper import Wallpaper
+from ._wallpaper import Wallpaper
 from ._sms import SMS
 from ._telephony import Telephony
 from ._brightness import Brightness
 from ._media_player import MediaPlayer
 from ._mic_record import MicRec
 from ._volume import Volume
-VERSION = "1.1"
+from ._tts import TTS
+VERSION = "1.1.3"
 
 has_termux_api = _check.check_api()
 

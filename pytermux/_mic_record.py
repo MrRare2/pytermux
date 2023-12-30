@@ -2,6 +2,7 @@ from . import _exception
 from . import _check
 import subprocess
 import json
+import os
 
 prog = "termux-microphone-record"
 
@@ -20,9 +21,13 @@ class MicRec:
         """Function to record using your device's microphone
         Args:
             file - file you want the recording will be saved
-            duration - the duration of the record"""
-        # FIXME: I DONT KNOW WHAT FILE EXTENSION DOES TERMUX API USE, IF YOU KNOW, FIX ME HERE (so i can be played without errors)
-        cmd = [prog, "-f", file, "-l", str(duration)]
+            duration - the duration of the record, default is 60"""
+        # UPDATE: i fixed it, we will use MPEG-4 (aac), which is m4a
+        fn, ex = os.path.splitext(file)
+        if not ex:
+            ex = ".m4a"
+        file = fn + ex
+        cmd = [prog, "-e", "aac", "-f", file, "-l", str(duration)]
 
         process = self._run(cmd)
         success = _check.check_success(process)

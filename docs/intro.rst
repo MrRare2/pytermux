@@ -232,7 +232,15 @@ Permissions:
 TTS (Text-to-speech)
 --------------------
 
-not implemented yet
+You can make TTS speak with ``pytermux`` as well! yea
+
+.. code-block:: python
+
+   import pytermux
+   tts = pytermux.TTS()
+   tts.speak('hello')
+
+This has lot of arguments, but you can see what are those using the built-in ``help()`` function, but here is a simple way to make TTS speak.
 
 Volume
 ------
@@ -265,16 +273,26 @@ The ``300`` basically is the duration of  the vibration (per milisecond)
 Wallpaper
 ---------
 
-not implemented yet
+You can set your device's wallpaper with ``Wallpaper()``
+
+.. code-block:: python
+
+   import pytermux
+   wp = pytermux.Wallpaper()
+   wp.set('/sdcard/image.jpeg')
+
 
 WiFi
 ----
 
-not implemented yet
+As of December 2023, you can only scan (``WiFi.scan()``), check connection info (``WiFi.conninfo()``) and turn it on or off. As Termux:API dosen't support connecting to WiFi networks yet.
 
+Permissions:
 
-Notes
-=====
+- ``android.permission.ACCESS_FINE_LOCATION``
+
+Notes again
+===========
 
 There you have it, if you have more questions you can create an issue on the `repo <https://github.com/MrRare2/pytermux/issues>`__
 
@@ -283,3 +301,5 @@ The developers, and ``pytermux`` **WILL NEVER** collect any personal info/data y
 Warning!!!
 ----------
 Please do **NOT** use this on any unethical hacking activies. We are not responsible for any damages or cause you make on using this script.
+
+
