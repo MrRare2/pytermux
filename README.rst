@@ -36,7 +36,7 @@ Maintainer
 ----------
 
 - `@MrRare2 <https://github.com/MrRare2>`__
-- `@MrRareDev <https://github.com/MrRareDev>'__
+- `@MrRareDev <https://github.com/MrRareDev>`__
 
 Notes
 =====
