@@ -1,7 +1,7 @@
 class NonZero(ValueError):
     pass
 
-class TermuxAPINotInstallee(Exception):
+class TermuxAPINotInstalled(Exception):
     pass
 
 class TermuxAPIError(Exception):
