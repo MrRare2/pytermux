@@ -16,7 +16,7 @@ def check_api():
     """Function to check if Termux:API is installed"""
     cmd = subprocess.run(['apt', 'list', 'termux-api'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    if b'[installed]' in cmd.stdout:
+    if b'[installed]' or b'[installed' in cmd.stdout:
         return True
     else:
         return False
