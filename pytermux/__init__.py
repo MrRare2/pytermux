@@ -14,6 +14,7 @@ from ._contacts import get_contacts
 from ._dialog import dialog_checkbox, dialog_confirm, dialog_counter, dialog_date, dialog_radio, dialog_speech, dialog_spinner, dialog_text, dialog_time
 from ._download import download
 from ._fingerprint import fingerprint
+from ._ir import infrared_frequencies, infrared_transmit
 from ._sensor import Sensor
 from ._wifi import WiFi
 from ._notif import Notification
