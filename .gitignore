@@ -4,3 +4,4 @@
 *.swn
 __pycache__/
 *.pyc
+pytermux/_templ.py

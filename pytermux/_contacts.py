@@ -3,8 +3,8 @@ from ._comm import communicate
 
 import json
 
-def battery() -> dict:
-    """Get battery info"""
-    out, err = communicate(Commands.battery_status, {})
+def get_contacts() -> dict:
+    """Get all contacts"""
+    out, err = communicate(Commands.contact_list, {})
     if err: raise Exception(err.decode())
     return json.loads(out)

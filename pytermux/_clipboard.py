@@ -1,7 +1,7 @@
 from ._commands import Commands
 from ._comm import Arguments, Types, communicate
 
-def clipboard_get():
+def clipboard_get() -> bytes:
     """Get current contents of the clipbosrd
 
     Returns:
@@ -10,7 +10,7 @@ def clipboard_get():
     if err: raise Exception(err.decode())
     return out
 
-def clipboard_set(data: bytes):
+def clipboard_set(data: bytes) -> None:
     """Put data to the clipbosrd
 
     Args:

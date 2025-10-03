@@ -20,5 +20,15 @@ def camera_take(file: str, cam: int = 0):
     args = Arguments()
     args += (Types.string, "file", file)
     args += (Types.string, "camera", str(cam))
-    out, err = communicate(Commands.camera_photo, args)
+    _, err = communicate(Commands.camera_photo, args)
     if err: raise Exception(err)
+
+def torch_set(enabled: bool) -> dict:
+    """Toggle torch/flashlight
+    Args:
+        enabled: bool"""
+    args = Arguments()
+    args += (Types.boolean, "enabled", f"{'true' if enabled else 'false'}")
+    out, err = communicate(Commands.torch, args)
+    if err: raise Exception(err.decode())
+    return json.loads(out)

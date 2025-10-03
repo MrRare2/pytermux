@@ -14,6 +14,7 @@ class Types(object):
     short = 8
     char = 9
     byte = 10
+    array_int = 11
 
 class Argument(object):
     """
@@ -80,6 +81,8 @@ class Arguments(object):
                 result.extend(["--ec", arg.key, arg.value])
             elif arg.type == Types.byte:
                 result.extend(["--eb", arg.key, arg.value])
+            elif arg.type == Types.array_int:
+                result.extend(["--eia", arg.key, arg.value])
             else:
                 raise ValueError(f"Unsupported type: {arg.type}")
         return result
