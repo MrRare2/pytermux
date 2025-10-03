@@ -87,7 +87,7 @@ class Arguments(object):
                 raise ValueError(f"Unsupported type: {arg.type}")
         return result
 
-def communicate(command: str, args=None, stdin=None, timeout=30) -> tuple[bytes, bytes]:
+def communicate(command: str, args=None, stdin=None, extra: list[str] = [], timeout=30) -> tuple[bytes, bytes]:
     """
     Executes a termux-api command with arguments.
 
@@ -95,6 +95,7 @@ def communicate(command: str, args=None, stdin=None, timeout=30) -> tuple[bytes,
         command (str): Command to run.
         args (None|Arguments|list[Argument|tuple[int,str,str|None]]|dict[int,tuple[str]|tuple[str,str]]): Arguments to process.
         stdin (bytes|None): Optional input stream.
+        extra (list[str]): Extra arguments to pass
         timeout (int): Timeout for process execution.
 
     Returns:
@@ -138,7 +139,7 @@ def communicate(command: str, args=None, stdin=None, timeout=30) -> tuple[bytes,
         raise TypeError("Arguments must be None, Arguments, list, or dict[int, (str,) | (str, str)]")
 
     process = subprocess.Popen(
-        [EXEC, command] + arg_list,
+        [EXEC, command] + arg_list + extra,
         stdin=subprocess.PIPE if stdin else None,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE

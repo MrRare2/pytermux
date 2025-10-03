@@ -12,7 +12,8 @@ from ._camera import camera_info, camera_take, torch_set
 from ._clipboard import clipboard_get, clipboard_set
 from ._contacts import get_contacts
 from ._dialog import dialog_checkbox, dialog_confirm, dialog_counter, dialog_date, dialog_radio, dialog_speech, dialog_spinner, dialog_text, dialog_time
-from ._fingerprint import Fingerprint
+from ._download import download
+from ._fingerprint import fingerprint
 from ._sensor import Sensor
 from ._wifi import WiFi
 from ._notif import Notification

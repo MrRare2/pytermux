@@ -1,7 +1,10 @@
-# TODO: do this because i dont have a fingerprint scanner on my phone
-class Fingerprint:
-    def __init__(self):
-        pass
-    
-    def something(self):
-        raise NotImplementedError("coming soon")
+from ._commands import Commands
+from ._comm import communicate
+
+import json
+
+def fingerprint() -> None:
+    """Authenticate with device's fingerprint"""
+    out, err = communicate(Commands.fingerprint, {})
+    if err: raise Exception(err.decode())
+    return json.loads(out)
