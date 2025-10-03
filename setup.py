@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pytermux",
-    version="1.1.3.1",
+    version="1.1.3.2",
     packages=find_packages(),
     install_requires=[],
     include_package_data=True,

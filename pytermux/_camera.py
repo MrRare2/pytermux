@@ -1,38 +1,24 @@
-from . import _exception
-from . import _check
-import subprocess
+from ._commands import Commands
+from ._comm import Arguments, Types, communicate
+
 import json
 
-prog = "termux-camera-photo"
+def camera_info():
+    """Get information about device camera(s)."""
+    out, err = communicate(Commands.camera_info, {})
+    if err: raise Exception(err.decode())
+    return json.loads(out)
 
-class Camera:
-    """Base class for taking images (termux-camera-photo)"""
-    def __init__(self):
-        pass
+def camera_take(file: str, cam: int = 0):
+    """Take a photo and save it to a file in JPEG format.
 
-    def _run(self, command):
-        """Function to run commands on Termux
-        Args:
-        command - the command you want to execute"""
-        return subprocess.run(command, capture_output=True, text=True)
+    Args:
+        file (str): file path to store the image
+        cam (int) = 0: camera id
+    """
 
-    def take(self, file, cam_type=0):
-        """Function to take photos
-        Args:
-        file - file to save the image
-        cam_type - camera to use to take, 0 for back (default) and 1 for front"""
-        if not isinstance(cam_type, int):
-            raise ValueError("Not an integer")
-        cmd = [prog, "-c", str(cam_type), file]
-
-        process = self._run(cmd)
-
-        success = _check.check_success(process)
-        try:
-            err_msg = json.loads(process.stdout.strip())
-            raise _exception.TermuxAPIError(err_msg["error"]) from None
-        except Exception as e:
-            if type(e) == _exception.TermuxAPIError:
-                raise
-        return True if success[0] else False
-
+    args = Arguments()
+    args += (Types.string, "file", file)
+    args += (Types.string, "camera", str(cam))
+    out, err = communicate(Commands.camera_photo, args)
+    if err: raise Exception(err)

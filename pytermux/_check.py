@@ -9,14 +9,14 @@ def check_success(raw):
         return [True, 0]
 
 def install():
-    cmd = ["apt","install","termux-api"]
+    cmd = ["pkg","install","-y","termux-api"]
     proc = subprocess.run(cmd)
 
 def check_api():
     """Function to check if Termux:API is installed"""
     cmd = subprocess.run(['apt', 'list', 'termux-api'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    if b'[installed]' or b'[installed' in cmd.stdout:
+    if b'[installed' in cmd.stdout:
         return True
     else:
         return False

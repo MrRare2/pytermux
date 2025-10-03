@@ -1,44 +1,24 @@
-from . import _exception
-from . import _check
-import subprocess
+from ._commands import Commands
+from ._comm import Arguments, Types, communicate
 
-prog_get = "termux-clipboard-get"
-prog_set = "termux-clipboard-set"
+def clipboard_get():
+    """Get current contents of the clipbosrd
 
-class Clipboard:
-    """Base class for getting/setting the clipboard"""
+    Returns:
+        bytes: clipboard data"""
+    out, err = communicate(Commands.clipboard, {Types.string: ("api_version", "2"), Types.boolean: ("set", "false")})
+    if err: raise Exception(err.decode())
+    return out
 
-    def __init__(self):
-        pass
+def clipboard_set(data: bytes):
+    """Put data to the clipbosrd
 
-    def _run(self, command):
-        """Function to run commands on Termux
-        Args:
-        command - the command you want to execute
-        """
-        return subprocess.run(command, capture_output=True, text=True)
-
-    def get(self):
-        """Get the contents of the clipboard
-        Returns None if the contents are empty or there's an error"""
-        cmd = [prog_get]
-        process = self._run(cmd)
-
-        success = _check.check_success(process)
-
-        if success[0]:
-            return process.stdout.strip()
-        else:
-            return
-
-    def set(self, data):
-        """Set clipboard data
-        Args:
-        data - the data you want ro set to clipboard"""
-        cmd = [prog_set, data]
-
-        process = self._run(cmd)
-
-        success = _check.check_success(process)
-
-        return True if success[0] else False
+    Args:
+        data (bytes): data to be put on the clipboard
+    """
+    args = Arguments()
+    if not data: return
+    args += (Types.string, "api_version", "2")
+    args += (Types.boolean, "set", "true")
+    out, err = communicate(Commands.clipboard, args, stdin=data)
+    if err: raise Exception(err)

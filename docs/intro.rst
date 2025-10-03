@@ -1,14 +1,14 @@
 Introduction
 ============
 
-Welcome to ``pytermux``, a simple Python module that ables to control your Android device with Termux:API
+Welcome to ``pytermux``, a simple Python module that ables to control your Android device with Termux:API.
 
 Notes
 -----
 
 This module expects you have **Termux** and **Termux:API** (including its apt package) installed on your Android phone
 
-If not, you can install it `here <https://github.com/termux/termux-app>`__ and Termux:API `here <https://github.com/termux/termux-api>`__.
+If not, you can download and install Termux `here <https://github.com/termux/termux-app>`__ and Termux:API `here <https://github.com/termux/termux-api>`__.
 
 Another note here that this project is still in development, some examples here are not made yet, marked with ``(not implemented)``
 
@@ -20,32 +20,32 @@ Functions/Methods
 Battery
 -------
 
-To get the battery information, you need to use ``pytermux.Battery()`` which is shown as example below
+To get the battery information, you use the  ``battery()`` function which is shown as example below
 
 .. code-block:: python
 
     import pytermux
-    battery = pytermux.Battery()
-    info = battery.battery()
 
-    percentage = info['percentage']
+    battery = pytermux.battery()
+    percentage = battery['percentage']
 
-    print(f'Your device battery percentage is: {percentage}')
-In this example, we used ``pytermux.Battery()`` instance for getting battery information, and used ``battery()`` to get the info, then we take the `percentage` value from `info` then printed it, this is mostly easy to use, but some outputs may depend on your device
+    print(f'Your device battery percentage is: {percentage}%')
+
+In this example, we used the ``battery()`` function to get the battery info, then we take the `percentage` value from `info` then printed it, this is mostly easy to use, but some outputs may depend on your device.
 
 Brightness
 ----------
 
-Brightness setting is useful if you want to change your devices brightness based on your preferences, its also good when also used with ``Sensor()``, which you will see later on this guide
+Brightness setting is useful if you want to change your device's brightness based on your use, its also good when also used with ``Sensor()``, which you will see later on this guide:
 
 .. code-block:: python
 
     import pytermux
-    bn = pytermux.Brightness()
-    bn.set('auto')
+    bn = pytermux.set_brightness(-1)
 
-Here, you set your brightness on ``bn.set()`` in ``Brightness()`` instance, the argument ``auto`` means the brightness will he automatic, this argument can be an integer, from 0 to 255, 0 being lowest and 255 being brightest possible you can set.
+Here, you set your brightness with ``pytermux.set_brightness(...)`` function, the argument ``-1`` means the brightness will he automatic, this argument can be an integer, from 0 to 255, 0 being lowest and 255 being brightest possible you can set.
 
+Note that it might ask for the permission to **write on system settings** or this will not work. That is only asked once.
 
 Camera
 ------
@@ -55,10 +55,9 @@ Some sample usage in ``pytermux`` are taking pictures with your phone camera
 .. code-block:: python
 
     import pytermux
-    cam = pytermux.Camera()
-    cam.take('image.jpg', cam_type=0)
+    pytermux.camera_take('image.jpg', 0)
 
-Here, it uses the ``Camera()`` instance for camera and `take()` function to actually take images with file ``image.jpg``, here, the ``cam_type`` argument is used if you want to use your phone's back or front camera, 0 for back, which is default, and 1 for front.
+Here, it uses the ``camera_take()`` function to actually take images and save it to ``image.jpg``, here, the ``0`` is used to specify the camera to use if you want to use your phone's back or front camera, 0 for back, which is default, and 1 for front.
 
 Permissions:
 
@@ -67,19 +66,19 @@ Permissions:
 Clipboard
 ---------
 
-You can also get, and set the data of your clipboard with the ``Clipboard()`` instance
+You can also get and set the data of your device's clipboard with ``pytermux``
 
 .. code-block:: python
 
     import pytermux
-    clipboard = pytermux.Clipboard()
-    data = clipboard.get()
+    data = clipboard_get()
+    print(f"Current clipboard data:", data)
     new_data = "Hello World!"
-    clipboard.set(new_data)
+    pytermux.clipboard_set(new_data)
 
-Here, you get the data by using ``get()`` method, and set it with new data with ``set()``
+Here, you get the current clipboard by using ``clipboard_get()`` function, and set it with a new data with ``clipboard_set()``
 
-Unfortunately, ``get()`` doesn't work when you copy an image, i can't fix this because ``pytermux`` just executes system commands to the system
+Unfortunately, ``clipboard_get()`` doesn't return an image blob, nor ``clipboard_set()``, i can't fix this because ``pytermux`` just uses the Termux:API and it currently does not support image copying/getting.
 
 Dialog
 ------

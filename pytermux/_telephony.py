@@ -1,33 +1,24 @@
-from . import _exception
-from . import _check
-import subprocess
+from ._commands import Commands
+from ._comm import Arguments, Types, communicate
+
 import json
 
-prog = "termux-telephony-call"
+def call_logs():
+    """List call log history"""
+    out, err = communicate(Commands.call_log, {})
+    if err: raise Exception(err.decode())
+    return json.loads(out)
 
-class Telephony:
-    """Base class for calling phone numbers (termux-telephony-call)"""
-    def __init__(self):
-        pass
+def call(number: str, sim: int = 0):
+    """Call the number
 
-    def _run(self, command):
-        """Function to run commands on Termux
-        Args:
-        command - the command you want to execute"""
-        return subprocess.run(command, capture_output=True)
+    Args:
+        number (str): number to call
+        sim (int) = 0: sim id
+    """
 
-    def call(self, number):
-        """Function to open flashlight"""
-        cmd = [prog, str(number)]
-
-        process = self._run(cmd)
-        success = _check.check_success(process)
-
-        try:
-            err_msg = json.loads(process.stdout.strip())
-            raise _exception.TermuxAPIError(err_msg["error"]) from None
-        except Exception as e:
-            if type(e) == _exception.TermuxAPIError:
-                raise
-        return True if success[0] else success
-
+    args = Arguments()
+    args += (Types.string, "number", file)
+    args += (Types.string, "sim", str(cam))
+    out, err = communicate(Commands.camera_photo, args)
+    if err: raise Exception(err)

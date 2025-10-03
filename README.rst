@@ -24,7 +24,7 @@ To install pytermux, do
 Usage
 -----
 
-The doc is available on `ReadTheDocs <https://pytermux.readthedocs.io/en/latest/>`__
+The documentation is available on `ReadTheDocs <https://pytermux.readthedocs.io/en/latest/>`__
 
 Notes
 -----
@@ -32,8 +32,8 @@ Notes
 This package is still in development, so if you want to report bugs, Go to the Issues tab
 If you want to contribute and help to the project, or ask something else email me at `mrrare.dev@gmail.com <mailto:mrrare.dev@gmail.com>`__
 
-Maintainer
-----------
+Maintainers
+-----------
 
 - `@MrRare2 <https://github.com/MrRare2>`__
 - `@MrRareDev <https://github.com/MrRareDev>`__

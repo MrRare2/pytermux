@@ -1,6 +1,6 @@
 project = "pytermux"
 author = "MrRare2"
-version = "1.0"
+version = "1.0.1"
 full = version
 desc = "pytermux - interact with Termux:API in Python"
 html_short_title = desc

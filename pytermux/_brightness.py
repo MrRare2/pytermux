@@ -1,33 +1,21 @@
-from . import _exception
-from . import _check
-import subprocess
+from ._commands import Commands
+from ._comm import Arguments, Types, communicate
+
 import json
 
-prog = "termux-brightness"
+def set_brightness(value: int) -> None:
+    """Set the screen brightness between 0 - 255 or auto
+    
+    Args:
+        value (int): value to set, between 0 and 255, or -1 for auto
 
-class Brightness:
-    """Base class for controlling the brightness (termux-brightness)"""
-    def __init__(self):
-        pass
+    Raises:
+        ValueError: value not within 0-255 or -1
+        Exception: command errors"""
+    args = Arguments()
+    if 255 >= value >= 0: args += (Types.integer, "brightness", str(value))
+    elif value == -1: args += (Types.boolean, "auto", "true")
+    else: raise ValueError("Value not within 0 - 255 or -1")
+    out, err = communicate(Commands.brightness, args)
+    if err: raise Exception(err.decode())
 
-    def _run(self, command):
-        """Function to run commands on Termux
-        Args:
-        command - the command you want to execute"""
-        return subprocess.run(command, capture_output=True)
-
-    def set(self, value=69):
-        """Function to set value of brightness
-        Args:
-            value - integer, or str (auto)"""
-        cmd = [prog, "auto" if isinstance(value, str) else str(value)]
-
-        process = self._run(cmd)
-        success = _check.check_success(process)
-
-        try:
-            err_msg = json.loads(process.stdout.strip())
-            raise _exception.TermuxAPIError(err_msg["error"])
-        except:
-            pass
-        return True if success[0] else success
