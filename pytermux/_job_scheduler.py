@@ -3,7 +3,7 @@ from ._comm import Arguments, Types, communicate
 
 # TODO: parse outputs better
 
-def job_scheduler_cannel_all() -> bytes:
+def job_scheduler_cancel_all() -> bytes:
     """Cancel all scheduled jobs"""
     out, err = communicate(Commands.job_scheduler, {Types.boolean: ("cancel_all", "true")})
     if err: raise Exception(err.decode())

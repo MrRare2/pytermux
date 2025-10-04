@@ -15,7 +15,8 @@ from ._dialog import dialog_checkbox, dialog_confirm, dialog_counter, dialog_dat
 from ._download import download
 from ._fingerprint import fingerprint
 from ._ir import infrared_frequencies, infrared_transmit
-from ._job_scheduler import job_schedule, job_scheduler_cancel, job_scheduler_cannel_all, job_scheduler_pending
+from ._job_scheduler import job_schedule, job_scheduler_cancel, job_scheduler_cancel_all, job_scheduler_pending
+from ._location import location
 from ._sensor import Sensor
 from ._wifi import WiFi
 from ._notif import Notification
