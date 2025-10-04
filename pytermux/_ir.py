@@ -1,4 +1,3 @@
-from collections.abc import ValuesView
 from ._commands import Commands
 from ._comm import Arguments, Types, communicate
 
